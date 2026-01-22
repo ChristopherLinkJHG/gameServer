@@ -13,7 +13,7 @@
     <script>
       document.getElementById("send").addEventListener("click", async () => {
         try {
-          const response = await fetch("http://localhost:5000/api", {
+          const response = await fetch("http://192.168.178.121:5000/api", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
