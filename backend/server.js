@@ -5,7 +5,7 @@ const app = express();
 
 // ✅ CORS middleware (THIS IS ENOUGH)
 app.use(cors({
-  origin: "http://localhost:3000"
+  origin: "https://christopherlinkjhg.github.io"
 }));
 
 app.use(express.json());
