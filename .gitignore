@@ -18,3 +18,7 @@ Thumbs.db
 # Logs
 logs
 *.log
+
+
+#database
+backend/scores.db
