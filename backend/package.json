@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/ChristopherLinkJHG/gameServer#readme",
   "dependencies": {
-    "cors": "^2.8.5",
+    "better-sqlite3": "^12.6.2",
+    "cors": "^2.8.6",
     "express": "^5.2.1"
   },
-  "devDependencies": {},
   "description": ""
 }

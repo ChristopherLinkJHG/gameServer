@@ -1,46 +1,133 @@
-# Local Network Web App (GitHub Pages + Node.js)
+# Game Score Leaderboard Proof-of-Concept
 
-This project demonstrates a simple setup where:
+This is a **proof-of-concept project** that demonstrates a static frontend hosted on GitHub Pages interacting with a backend API to store and display player scores for multiple games.
 
-- A **static frontend** is hosted on **GitHub Pages**
-- A **Node.js / Express backend** runs on a **local machine**
-- The frontend communicates with the backend using `fetch()` and CORS
+---
 
-This setup is intended for **local network usage and development**.
+## Features
 
+- **Game Website**: Submit player scores via a simple form.
+- **Viewer / Leaderboard Website**: View top 10 scores per game, or overall top 10 across all games, with auto-refresh.
+- **Backend API**: Node.js + Express server with SQLite database.
+- **Database**: SQLite stores player names, game names, scores, and timestamps.
+- **Frontend**: Static HTML, CSS, and JavaScript. Works locally or can be hosted on GitHub Pages.
 
-## 📁 Project Structure
+---
 
-.
-├── frontend/ # Static site (GitHub Pages)
-│ └── index.html
-├── backend/ # Node.js / Express API
-│ ├── server.js
+## Project Structure
+
+project-root/
+│
+├── backend/
+│ ├── server.js # Node.js + Express + SQLite
+│ ├── scores.db # SQLite database (auto-created)
 │ ├── package.json
-│ └── node_modules/ (ignored)
-├── .gitignore
+│ └── node_modules/
+│
+├── frontend/
+│ ├── game/
+│ │ ├── index.html
+│ │ └── game.js
+│ │
+│ └── viewer/
+│ ├── index.html
+│ ├── viewer.js
+│ └── style.css
+│
 └── README.md
 
 
+---
 
+## Tech Stack
 
+- **Frontend**: HTML, CSS, Vanilla JavaScript  
+- **Backend**: Node.js, Express  
+- **Database**: SQLite (`better-sqlite3`)  
+- **Hosting**: GitHub Pages (frontend only)
 
-## 🚀 How to Run Locally
+---
 
-### 1️⃣ Start the backend server
-bash
-cd backend
+## Getting Started (Local Development)
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd project-root/backend
+
+2. Install backend dependencies
+
 npm install
+
+3. Start the backend server
+
 node server.js
 
+    Backend API will run at: http://localhost:5000
 
-Server runs at:
-http://localhost:5000
+    Database scores.db will be created automatically if it doesn't exist.
 
+4. Open frontend websites
 
-2️⃣ Start the frontend
-cd frontend
-npx serve .
+    Game website: frontend/game/index.html
 
-Open:
-http://localhost:3000
+    Viewer / Leaderboard website: frontend/viewer/index.html
+
+    Note: Frontend uses http://localhost:5000 as API URL for dev/testing.
+
+API Endpoints
+POST /api/scores
+
+Add a player score.
+
+Request body (JSON):
+
+{
+  "playerName": "Chris",
+  "game": "Snake",
+  "score": 123
+}
+
+Response:
+
+{
+  "success": true
+}
+
+GET /api/scores
+
+Retrieve scores, optionally filtered by game.
+
+Query parameters:
+
+    game (optional): Filter by game name.
+
+    limit (optional): Maximum number of results (default 50).
+
+Response:
+
+[
+  {
+    "player_name": "Chris",
+    "game": "Snake",
+    "score": 123,
+    "created_at": "2026-01-23T12:34:56Z"
+  }
+]
+
+Future Improvements
+
+    Host backend publicly (Cloudflare Tunnel / domain) for GitHub Pages frontend.
+
+    Add authentication for secure score submissions.
+
+    Enhance leaderboard UI with badges for top 3 ranks.
+
+    Add multiple games or different game modes.
+
+    Deploy backend to Raspberry Pi for local network testing.
+
+License
+
+This project is for educational / proof-of-concept purposes.

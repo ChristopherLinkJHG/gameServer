@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Leaderboard</h1>
+
+    <div class="controls">
+      <label for="gameSelect">Select Game:</label>
+      <select id="gameSelect">
+        <option value="">All Games</option>
+      </select>
+      <button id="loadBtn">Load Top 10</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Game</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="scores"></tbody>
+    </table>
+  </div>
+
+  <script src="viewer.js"></script>
+</body>
+</html>
