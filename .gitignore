@@ -22,3 +22,7 @@ logs
 
 #database
 backend/scores.db
+
+
+#copypaste
+copyPaste/

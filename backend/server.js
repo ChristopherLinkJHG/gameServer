@@ -26,12 +26,7 @@ db.prepare(`
    Middleware
 ====================== */
 
-app.use(cors({
-  origin: [
-    "https://christopherlinkjhg.github.io",
-    "http://localhost:3000"
-  ]
-}));
+app.use(cors());
 
 app.use(express.json());
 
@@ -92,5 +87,5 @@ app.get("/api/scores", (req, res) => {
 ====================== */
 
 app.listen(PORT, () => {
-  console.log(`✅ API running at http://localhost:${PORT}`);
+  console.log(`API running at http://0.0.0.0:${PORT}`);
 });
