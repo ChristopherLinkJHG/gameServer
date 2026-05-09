@@ -34,6 +34,8 @@ project-root/
 │ ├── viewer.js
 │ └── style.css
 │
+├── submitScores.js # Reusable client helper to post scores
+│
 └── README.md
 
 
@@ -75,6 +77,21 @@ node server.js
     Viewer / Leaderboard website: frontend/viewer/index.html
 
     Note: Frontend uses http://localhost:5000 as API URL for dev/testing.
+
+Reusable Client Helper (submitScores.js)
+
+Use submitScores.js to post scores from any site. It validates inputs and sends a POST to the backend.
+
+Example (ES module):
+
+<script type="module">
+  import { submitScores } from "./submitScores.js";
+
+  // submitScores(game, score, name)
+  await submitScores("Snake", 123, "Chris");
+</script>
+
+To change the backend URL, edit the API_URL constant inside submitScores.js.
 
 API Endpoints
 POST /api/scores
