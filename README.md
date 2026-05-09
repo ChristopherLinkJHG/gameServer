@@ -82,6 +82,10 @@ Reusable Client Helper (submitScores.js)
 
 Use submitScores.js to post scores from any site. It validates inputs and sends a POST to the backend.
 
+Note: If you import submitScores.js with <script type="module"> from a local file (file://), some browsers will block the module import. To avoid that, either:
+- run a local web server (recommended), or
+- inline the submitScores helper directly in the HTML file you are opening.
+
 Example (ES module):
 
 <script type="module">
